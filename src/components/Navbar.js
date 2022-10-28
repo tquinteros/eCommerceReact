@@ -1,12 +1,12 @@
 import React from "react";
-import ItemListContainer from "./ItemListContainer";
+import ItemNavContainer from "./ItemNavContainer";
 import CartWidget from "./CartWidget";
 
-export default function Header() {
+export default function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       <navbar className="flex justify-between bg-black">
-        <ItemListContainer />
+        <ItemNavContainer />
         <CartWidget />
       </navbar>
     </header>

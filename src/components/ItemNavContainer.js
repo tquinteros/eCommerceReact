@@ -2,7 +2,7 @@ import React from "react";
 import { itemsLeft } from "../data/itemListData";
 import Logo from "../images/logo.png";
 
-export default function ItemListContainer() {
+export default function ItemNavContainer() {
   return (
     <div className="flex">
       <img src={Logo} width={100} alt="Logo" />
