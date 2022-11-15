@@ -1,11 +1,18 @@
 import React from "react";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 export default function Item(props) {
+  const urlDetail = `/item/${props.id}`;
+
   return (
     <div className="bg-white sm:mx-auto shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl hover:duration-300">
       <a href="." className="flex justify-center">
-        <img className="rounded-t-lg max-h-80" src={props.img} alt={props.name} />
+        <img
+          className="rounded-t-lg max-h-80"
+          src={props.img}
+          alt={props.name}
+        />
       </a>
       <div className="p-5">
         <a href=".">
@@ -20,7 +27,9 @@ export default function Item(props) {
           ${props.price}
         </p>
         <div className="flex justify-center">
-          <Button>Ver Más</Button>
+          <Link to={urlDetail}>
+            <Button>Ver Más</Button>
+          </Link>
         </div>
       </div>
     </div>
