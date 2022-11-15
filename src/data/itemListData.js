@@ -6,15 +6,15 @@ const listItemsLeft = [
     link: ".",
   },
   {
-    name: "Nosotros",
+    name: "Remeras y Camisas",
     link: ".",
   },
   {
-    name: "¿Cómo comprar?",
+    name: "Buzos",
     link: ".",
   },
   {
-    name: "Novedades",
+    name: "Pantalones",
     link: ".",
   },
 ];
