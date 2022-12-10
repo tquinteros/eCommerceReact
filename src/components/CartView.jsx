@@ -6,13 +6,13 @@ export default function CartView() {
   const { cart, removeItem, clear, priceInCart } = useContext(cartContext);
   if (cart.length === 0) return(
   <div className="min-h-screen flex items-center justify-center">
-    <h1 className="text-8xl">Carrito Vacío</h1>
+    <h1 className="md:text-8xl text-6xl text-center">Carrito Vacío</h1>
   </div>);
   return (
     <div>
       {cart.map((item) => {
         return (
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center" key={item.id}>
             <div>
               <img src={item.img} alt="" className="object-cover" width={100} />
             </div>
