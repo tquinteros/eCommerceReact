@@ -5,14 +5,14 @@ export default function getItems(categoryId) {
       if (categoryId === undefined) {
         setTimeout(() => {
           resolve(products);
-        }, 1000);
+        }, 500);
       } else {
         setTimeout(() => {
           let itemsFound = products.filter(
             (item) => item.category === categoryId
           );
           resolve(itemsFound);
-        }, 1000);
+        }, 500);
       }
     });
 }
@@ -22,6 +22,6 @@ export function getSingleItem(id) {
     let itemFound = products.find((item) => item.id === parseInt(id));
     setTimeout(() => {
       resolve(itemFound);
-    }, 1250);
+    }, 500);
   });
 }

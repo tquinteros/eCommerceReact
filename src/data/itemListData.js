@@ -21,7 +21,7 @@ const listItemsLeft = [
 ];
 
 export const itemsLeft = listItemsLeft.map((listItemsLeft) => (
-  <li key={listItemsLeft.name} className="text-white text-sm md:text-lg mx-2 hover:opacity-60">
+  <li key={listItemsLeft.name} className="text-white text-sm md:text-lg mx-2 hover:opacity-60 select-none">
     <Link to={listItemsLeft.link}>{listItemsLeft.name}</Link>
   </li>
 ));
