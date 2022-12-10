@@ -11,7 +11,6 @@ export const products = [
     price: 2500,
     category: "torso",
     stock: 3,
-    discount: 20,
   },
   {
     id: 2,
@@ -21,7 +20,6 @@ export const products = [
     price: 4000,
     category: "pantalones",
     stock: 6,
-    discount: 25,
   },
   {
     id: 3,
