@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { getSingleItem } from "../Services/mockService";
+import { getSingleItem } from "../Services/firestore";
 // import Button from "./Button";
 // import Item from "./Item";
 // import ItemCount from "./ItemCount";

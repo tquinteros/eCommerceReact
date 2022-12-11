@@ -7,8 +7,10 @@ import NotFound from "./components/NotFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {CartContextProvider} from "./context/cartContext";
 import CartView from "./components/CartView";
-
+import {getItems} from './Services/firestore';
+import ThankYou from './components/ThankYou';
 export default function App() {
+  getItems()
   return (
     <CartContextProvider>
       <BrowserRouter>
@@ -18,6 +20,7 @@ export default function App() {
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartView/>}/>
+          <Route path="/thankyou/:idOrder" element={<ThankYou/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

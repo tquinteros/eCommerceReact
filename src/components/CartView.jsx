@@ -1,13 +1,41 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { createOrder, exportArray } from "../Services/firestore";
 import { cartContext } from "./../context/cartContext";
 import Button from "./Button";
 export default function CartView() {
   const { cart, removeItem, clear, priceInCart } = useContext(cartContext);
-  if (cart.length === 0) return(
-  <div className="min-h-screen flex items-center justify-center">
-    <h1 className="md:text-8xl text-6xl text-center">Carrito Vacío</h1>
-  </div>);
+  let navigate = useNavigate()
+  // const [order, setOrder] = useState("")
+  function handleExport() {
+    exportArray()
+  }
+  async function handleCheckout(evt) {
+    const order = {
+      buyer: {
+        name:"Santiago",
+        email: "asdasd@hotmail.com",
+        phone: "123123"
+      },
+      items: cart,
+      total: priceInCart(),
+      date: new Date(),
+    };
+    const orderId = await createOrder(order)
+    // setOrder(orderId)
+    navigate(`/thankyou/${orderId}`)
+  }
+
+  // if (order !== "") {
+  //   return <h1 className="text-4xl text-center">Gracias por su compra</h1>
+  // }
+  if (cart.length === 0)
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <h1 className="md:text-8xl text-6xl text-center">Carrito Vacío</h1>
+      </div>
+    );
   return (
     <div>
       {cart.map((item) => {
@@ -28,8 +56,9 @@ export default function CartView() {
         );
       })}
       <h1 className="text-center text-3xl mt-4">Total: ${priceInCart()}</h1>
-      <div className="flex justify-center items-center mt-4">
+      <div className="flex gap-4 justify-center items-center mt-4">
         <Button onClick={clear}>Vaciar Carrito</Button>
+        <Button onClick={handleCheckout}>Finalizar Compra</Button>
       </div>
     </div>
   );
