@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-export default function ItemCount({ onAddToCart }, props) {
+
+export default function ItemCount({ onAddToCart, stock }) {
   let [cantidadItems, setCantidadItems] = useState(1);
 
   function handleAum() {
-     (cantidadItems < props.stock)
-       ? setCantidadItems(cantidadItems + 1)
-       : alert("No hay mas stock");
-    // setCantidadItems(cantidadItems + 1);
+    // cantidadItems > props.stock
+    //   ? setCantidadItems(cantidadItems + 1)
+    //   : alert("No hay mas stock");
+    // if (cantidadItems < stock) {
+    //   setCantidadItems(cantidadItems + 1);
+    // }
+    setCantidadItems(cantidadItems + 1);
   }
 
   function handleDis() {
